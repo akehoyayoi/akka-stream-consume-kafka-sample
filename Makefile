@@ -57,4 +57,9 @@ kafka-reset-offsets:
             --reset-offsets --to-earliest \
             --topic $(topic) --execute
 
+.PHONY: publish-hello
 
+publish-hello:
+	docker-compose exec -T kafka \
+		kafka-console-producer --broker-list localhost:9092 \
+			--topic com.yoheiokaya < data/hello.json
