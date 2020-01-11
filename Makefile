@@ -1,5 +1,10 @@
 SHELL := /bin/bash
 
+.PHONY: start
+
+start: start-containers
+	sbt run
+
 .PHONY: start-containers stop-containers destroy-containers
 
 start-containers:
@@ -53,7 +58,7 @@ kafka-delete-topic:
 kafka-reset-offsets:
     docker-compose exec kafka \
         kafka-consumer-groups --zookeeper zookeeper:2181 \
-            --group clm-santa-engine-1 \
+            --group consumer-group-1 \
             --reset-offsets --to-earliest \
             --topic $(topic) --execute
 

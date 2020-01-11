@@ -2,7 +2,6 @@
 
 This application requires a few services in order to run locally.
 
-
 ### Required dependencies
 
 - Docker (Version 18 or above)
